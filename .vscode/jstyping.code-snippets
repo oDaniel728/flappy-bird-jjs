@@ -195,5 +195,17 @@
         "body": "// @ts-check",
         "description": "Enable TypeScript checking",
         "scope": "javascript"
+    },
+    "Value casting": {
+        "prefix": "--cast",
+        "body": "/** @type {${1:type}} */ (${2:value});$0",
+        "description": "Type casting",
+        "scope": "javascript"
+    },
+    "Set variable with casting": {
+        "prefix": "--setvarcast",
+        "body": "${1:name} = /** @type {typeof ${1:name}} */ (${2:value});$0",
+        "description": "Set variable with value casting",
+        "scope": "javascript"
     }
 }
