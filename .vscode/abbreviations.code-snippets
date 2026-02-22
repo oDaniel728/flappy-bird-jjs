@@ -1,0 +1,177 @@
+{
+    "Property": {
+        "prefix": "@@prop",
+        "body": "@property {${1:type}} ${2:name}",
+        "scope": "javascript"
+    },
+    "Optional Property": {
+        "prefix": "@@prop-opt",
+        "body": "@property {${1:type}} [${2:name}]",
+        "scope": "javascript"
+    },
+    "Readonly Property": {
+        "prefix": "@@prop-ro",
+        "body": "@property {readonly ${1:type}} ${2:name}",
+        "scope": "javascript"
+    },
+    "Index Signature": {
+        "prefix": "@@index",
+        "body": "@property {{ [key: ${1:string}]: ${2:any} }} ${3:name}",
+        "scope": "javascript"
+    },
+    "Template": {
+        "prefix": "@@templ",
+        "body": "@template ${1:T}",
+        "scope": "javascript"
+    },
+    "Template Constrained": {
+        "prefix": "@@templ-ext",
+        "body": "@template {${1:string|number}} ${2:T}",
+        "scope": "javascript"
+    },
+    "Template Default": {
+        "prefix": "@@templ-def",
+        "body": "@template [${1:T=string}]",
+        "scope": "javascript"
+    },
+    "Param": {
+        "prefix": "@@param",
+        "body": "@param {${1:type}} ${2:name}$0",
+        "scope": "javascript"
+    },
+    "Param Optional": {
+        "prefix": "@@param-opt",
+        "body": "@param {${1:type}} [${2:name}]$0",
+        "scope": "javascript"
+    },
+    "Param Default": {
+        "prefix": "@@param-def",
+        "body": "@param {${1:type}} [${2:name}=${3:default}]$0",
+        "scope": "javascript"
+    },
+    "Returns": {
+        "prefix": "@@ret",
+        "body": "@returns {${1:type}}$0",
+        "scope": "javascript"
+    },
+    "Typedef": {
+        "prefix": "@@typedef",
+        "body": "@typedef {${1:type}} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Typedef Object": {
+        "prefix": "@@typedef-obj",
+        "body": [
+            "@typedef {Object} ${1:Name}",
+            "@property {${2:type}} ${3:field}"
+        ],
+        "scope": "javascript"
+    },
+    "Typedef Union": {
+        "prefix": "@@typedef-union",
+        "body": "@typedef {${1:A|B}} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Typedef Intersection": {
+        "prefix": "@@typedef-int",
+        "body": "@typedef {${1:A & B}} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Typedef Generic": {
+        "prefix": "@@typedef-gen",
+        "body": [
+            "@template ${1:T}",
+            "@typedef {{ ${2:value}: ${1} }} ${3:Name}"
+        ],
+        "scope": "javascript"
+    },
+    "Callback": {
+        "prefix": "@@callback",
+        "body": [
+            "@callback ${1:Name}",
+            "@param {${2:type}} ${3:param}",
+            "@returns {${4:type}}"
+        ],
+        "scope": "javascript"
+    },
+    "Enum": {
+        "prefix": "@@enum",
+        "body": "@enum {${1:number}}",
+        "scope": "javascript"
+    },
+    "Extends": {
+        "prefix": "@@extends",
+        "body": "@extends {${1:Base}}",
+        "scope": "javascript"
+    },
+    "Implements": {
+        "prefix": "@@implements",
+        "body": "@implements {${1:Interface}}",
+        "scope": "javascript"
+    },
+    "This": {
+        "prefix": "@@this",
+        "body": "@this {${1:type}}",
+        "scope": "javascript"
+    },
+    "Satisfies": {
+        "prefix": "@@satisfies",
+        "body": "@satisfies {${1:type}}",
+        "scope": "javascript"
+    },
+    "Import Type": {
+        "prefix": "@@import",
+        "body": "@typedef {import('${1:./file}').${2:Type}} ${3:Alias}",
+        "scope": "javascript"
+    },
+    "Record": {
+        "prefix": "@@record",
+        "body": "@typedef {Record<${1:string}, ${2:any}>} ${3:Name}",
+        "scope": "javascript"
+    },
+    "Partial": {
+        "prefix": "@@partial",
+        "body": "@typedef {Partial<${1:Type}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Pick": {
+        "prefix": "@@pick",
+        "body": "@typedef {Pick<${1:Type}, ${2:'key'}>} ${3:Name}",
+        "scope": "javascript"
+    },
+    "Omit": {
+        "prefix": "@@omit",
+        "body": "@typedef {Omit<${1:Type}, ${2:'key'}>} ${3:Name}",
+        "scope": "javascript"
+    },
+    "Readonly Utility": {
+        "prefix": "@@readonly",
+        "body": "@typedef {Readonly<${1:Type}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Required Utility": {
+        "prefix": "@@required",
+        "body": "@typedef {Required<${1:Type}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "ReturnType Utility": {
+        "prefix": "@@returntype",
+        "body": "@typedef {ReturnType<${1:Fn}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Parameters Utility": {
+        "prefix": "@@params",
+        "body": "@typedef {Parameters<${1:Fn}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "InstanceType Utility": {
+        "prefix": "@@instance",
+        "body": "@typedef {InstanceType<${1:Class}>} ${2:Name}",
+        "scope": "javascript"
+    },
+    "Ts Check": {
+        "prefix": "@@ts-check",
+        "body": "// @ts-check",
+        "scope": "javascript"
+    }
+}

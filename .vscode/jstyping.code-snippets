@@ -1,0 +1,199 @@
+{
+    "Static Type": {
+        "prefix": "--type",
+        "body": [
+            "/** @type {${1:any}} */"
+        ],
+        "description": "Static typing",
+        "scope": "javascript"
+    },
+    "Type Definition": {
+        "prefix": "--typedef",
+        "body": [
+            "/**",
+            " * @typedef {${1:type}} ${2:name}",
+            " */"
+        ],
+        "description": "Type definition",
+        "scope": "javascript"
+    },
+    "Struct Definition": {
+        "prefix": "--struct",
+        "body": [
+            "/**",
+            " * ${4:description}",
+            " * @typedef {Object} ${1:Name}",
+            " * @property {${2:any}} ${3:field}",
+            " */"
+        ],
+        "description": "Object type definition",
+        "scope": "javascript"
+    },
+    "Inline Struct": {
+        "prefix": "--il-struct",
+        "body": "/** @type {{ ${1:foo: \"bar\"} }} */",
+        "description": "Inline structure",
+        "scope": "javascript"
+    },
+    "Extended Struct": {
+        "prefix": "--struct-ext",
+        "body": [
+            "/**",
+            " * @typedef {${2:Base} & {",
+            " *   ${3:field}: ${4:any}",
+            " * }} ${1:Name}",
+            " */"
+        ],
+        "description": "Intersection / extend struct",
+        "scope": "javascript"
+    },
+    "Literal Definition": {
+        "prefix": "--literal",
+        "body": [
+            "/** @typedef {${2:\"foo\"|\"bar\"}} ${1:Name} */"
+        ],
+        "description": "Literal union type",
+        "scope": "javascript"
+    },
+    "Union Type": {
+        "prefix": "--union",
+        "body": [
+            "/** @typedef {${2:string|number}} ${1:Name} */"
+        ],
+        "description": "Union type",
+        "scope": "javascript"
+    },
+    "Function Type": {
+        "prefix": [
+            "--fn-type",
+            "--callable"
+        ],
+        "body": [
+            "/** @typedef {( ${2:param}: ${3:any} ) => ${4:any}} ${1:FnName} */"
+        ],
+        "description": "Function type alias",
+        "scope": "javascript"
+    },
+    "Typed Function": {
+        "prefix": [
+            "--fn",
+            "--function"
+        ],
+        "body": [
+            "/**",
+            " * @param {${1:any}} ${2:param}",
+            " * @returns {${3:any}}",
+            " */",
+            "function ${4:name}(${2}) {",
+            "  $0",
+            "}"
+        ],
+        "description": "Typed function",
+        "scope": "javascript"
+    },
+    "Typed Variable": {
+        "prefix": "--var",
+        "body": [
+            "/** @type {${3:type}} */",
+            "${1|let,var,const|} ${2:name} = ${4:value};"
+        ],
+        "description": "Typed variable",
+        "scope": "javascript"
+    },
+    "Generic Function": {
+        "prefix": "--generic-fn",
+        "body": [
+            "/**",
+            " * @template ${1:T}",
+            " * @param {${1}} ${2:value}",
+            " * @returns {${1}}",
+            " */",
+            "function ${3:identity}(${2}) {",
+            "  return ${2};",
+            "}"
+        ],
+        "description": "Generic function",
+        "scope": "javascript"
+    },
+    "Generic Typedef": {
+        "prefix": "--generic-type",
+        "body": [
+            "/**",
+            " * @template ${1:T}",
+            " * @typedef {{ ${2:value}: ${1} }} ${3:Box}<${1}>",
+            " */"
+        ],
+        "description": "Generic typedef",
+        "scope": "javascript"
+    },
+    "Readonly Property": {
+        "prefix": "--readonly",
+        "body": [
+            "/** @readonly */"
+        ],
+        "description": "Readonly property",
+        "scope": "javascript"
+    },
+    "Optional Property": {
+        "prefix": "--optional",
+        "body": [
+            "@property {${1:any}} [${2:name}]"
+        ],
+        "description": "Optional property",
+        "scope": "javascript"
+    },
+    "Import Type": {
+        "prefix": "--import-type",
+        "body": [
+            "/** @typedef {import('${1:./file}').${2:Type}} ${3:Alias} */"
+        ],
+        "description": "Import external type",
+        "scope": "javascript"
+    },
+    "Class With Types": {
+        "prefix": "--class",
+        "body": [
+            "/**",
+            " * @template ${1:T}",
+            " */",
+            "class ${2:ClassName} {",
+            "  /** @type {${1}} */",
+            "  ${3:field};",
+            "",
+            "  /**",
+            "   * @param {${1}} ${4:value}",
+            "   */",
+            "  constructor(${4}) {",
+            "    this.${3} = ${4};",
+            "  }",
+            "}"
+        ],
+        "description": "Typed class",
+        "scope": "javascript"
+    },
+    "Enum Like": {
+        "prefix": "--enum",
+        "body": [
+            "/** @enum {${1:string}} */",
+            "const ${2:EnumName} = {",
+            "  ${3:KEY}: \"${3}\"",
+            "};"
+        ],
+        "description": "Enum pattern",
+        "scope": "javascript"
+    },
+    "Record Type": {
+        "prefix": "--record",
+        "body": [
+            "/** @typedef {Record<${1:string}, ${2:any}>} ${3:Name} */"
+        ],
+        "description": "Record<K,V>",
+        "scope": "javascript"
+    },
+    "TS Check": {
+        "prefix": "--ts-check",
+        "body": "// @ts-check",
+        "description": "Enable TypeScript checking",
+        "scope": "javascript"
+    }
+}
