@@ -1,0 +1,17 @@
+/* fonts */
+.press-start {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+/* fonts */
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#board {
+    /* background-color: skyblue; */
+    background-image: url("../assets/images/flappybirdbg.png");
+}
