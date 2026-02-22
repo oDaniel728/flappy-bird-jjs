@@ -14,4 +14,19 @@ body {
 #board {
     /* background-color: skyblue; */
     background-image: url("../assets/images/flappybirdbg.png");
+    width: 100%;            /* escala o canvas */
+    max-width: 1280px;      /* desktop */
+    height: auto;           /* mantém proporção */
+    max-height: 640px;
+    display: block;
+    margin: 0 auto;         /* centraliza horizontal */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;     /* centraliza vertical */
+    background: black;
 }

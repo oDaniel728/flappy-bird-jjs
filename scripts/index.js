@@ -17,9 +17,10 @@
 
 // constants 
 let
+    userInteracted = false,
     boardWidth = 1280,
     boardHeight = 640;
-const
+var
     CHOOSELATER = -1,
     birdWidth = 34,
     birdHeight = 24,
@@ -29,6 +30,14 @@ const
     pipeHeight = 512,
     pipeX = boardWidth,
     pipeY = 0;
+function define()
+{  
+    birdX = boardWidth / 8
+    birdY = boardHeight / 2
+    pipeX = boardWidth
+
+}
+define();
 
 // assets
 /** @type {HTMLCanvasElement} */
@@ -127,6 +136,7 @@ const reset = () => {
 /** @param {number} points */
 const addScore = (points) => {
     score += points;
+    playSound(soundPoint);
 }
 
 // load
@@ -134,9 +144,10 @@ window.onload = function() {
     board = /** @type {HTMLCanvasElement} */ (document.getElementById("board"));
     context = /** @type {typeof context} */ (board.getContext("2d"));
     
-    if (window.innerWidth <= 768) { // limite para mobile
-        boardWidth = 640;
-        boardHeight = 320;
+    if (window.innerWidth <= 800) { // limite para mobile
+        boardWidth = 420;
+        boardHeight = 640;
+        define();
     }
     board.height = boardHeight;
     board.width = boardWidth;
@@ -166,11 +177,12 @@ window.onload = function() {
 function moveBird() {
     if (gameOver) reset();
     velocityY = -6;
+    userInteracted = true;
     playSound(soundFlap);
 }
 
 function updateBird() {
-    if (gravity != 0) {
+    if (gravity != 0 && userInteracted) {
         velocityY += gravity;
         bird.y = Math.max(bird.y + velocityY, 0);
     }
