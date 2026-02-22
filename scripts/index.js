@@ -16,10 +16,11 @@
  */
 
 // constants 
+let
+    boardWidth = 1280,
+    boardHeight = 640;
 const
     CHOOSELATER = -1,
-    boardWidth = 1280,
-    boardHeight = 640,
     birdWidth = 34,
     birdHeight = 24,
     birdX = boardWidth / 8,
@@ -131,9 +132,14 @@ const addScore = (points) => {
 // load
 window.onload = function() {
     board = /** @type {HTMLCanvasElement} */ (document.getElementById("board"));
+    context = /** @type {typeof context} */ (board.getContext("2d"));
+    
+    if (window.innerWidth <= 768) { // limite para mobile
+        boardWidth = 640;
+        boardHeight = 320;
+    }
     board.height = boardHeight;
     board.width = boardWidth;
-    context = /** @type {typeof context} */ (board.getContext("2d"));
 
     birdImage = new Image();
     birdImage.src = "./assets/images/flappybird.png";
@@ -151,7 +157,10 @@ window.onload = function() {
         if (e.code === "Space" || e.code === "ArrowUp" || e.code === "X") moveBird();
     });
     board.addEventListener("mousedown", moveBird);
-    board.addEventListener("touchstart", moveBird);
+    board.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // evita disparo do mousedown/click
+        moveBird();
+    }, { passive: false });
 };
 
 function moveBird() {
